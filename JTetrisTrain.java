@@ -323,7 +323,7 @@ public class JTetrisTrain extends JComponent {
 
         // Could create a JTetris or JBrainTetris here
         final int pixels = 16;
-        final int trials = 100;
+        final int trials = 10;
         JBrainNoGraphics tetris = new JBrainNoGraphics(WIDTH*pixels+2, (HEIGHT+TOP_SPACE)*pixels+2);
 
         if (args.length != 0 && args[0].equals("test")) {

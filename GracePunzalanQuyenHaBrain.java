@@ -193,24 +193,6 @@ public class GracePunzalanQuyenHaBrain implements Brain {
             }
         }
         
-        // calculate the number of filled cells above holes
-        int filledAboveHolesColumn = 0;
-        for (int x = 0; x < width; x++) {
-            // initialize isHole to false
-            boolean isHole = false;
-            // loop from the top of column down
-            for (int i = board.getColumnHeight(x) - 1; i >= 0; i--) {
-                // if the cell is empty, there is a hole
-                if (!board.getGrid(x, i)) isHole = true;
-                // if the cell is empty, does not add 1
-                // if the cell is filled, increment filledAboveHolesColumn by 1
-                filledAboveHolesColumn += isHole?0:1;
-            }
-            // if there is no hole in the entire column, there is no filled cell above holes
-            if (!isHole) filledAboveHolesColumn = 0;
-            filledAboveHoles += filledAboveHolesColumn;
-        }
-        
         // calculate the number of wells: empty cells where both their left and right are filled
         // board border is counted all filled cell
         for (int x = 0; x < width; x++) {
@@ -241,7 +223,7 @@ public class GracePunzalanQuyenHaBrain implements Brain {
         double value = 93*holes + 64*maxHeight + 29*averageHeight +
         10*bumpiness + 0*completeLines +
         37*rowTransitions + 37*columnTransitions +
-        25*wells + 0*filledAboveHoles + 39*rowsWithHoles +
+        25*wells + 39*rowsWithHoles +
         0*heightDiff + 1*varianceHeight;
         
         return(value);

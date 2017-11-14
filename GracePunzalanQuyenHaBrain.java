@@ -87,7 +87,6 @@ public class GracePunzalanQuyenHaBrain implements Brain {
         int rowsWithHoles = 0;
         double heightDiff = 0;
         double averageHeight = 0;
-        double varianceHeight = 0;
         boolean[] areHoles = new boolean[maxHeight];
         
         // initialize all the cells below maxHeight to be filled
@@ -144,7 +143,6 @@ public class GracePunzalanQuyenHaBrain implements Brain {
                 rowsWithHoles += 1;
             }
         }
-        
         
         // calculating the complete lines that will be eliminated
         for (int y = 0; y < maxHeight; y++) {
